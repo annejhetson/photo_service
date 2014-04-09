@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: peanut_shutter_development
+
+test:
+  adapter: postgresql
+  database: peanut_shutter_test
