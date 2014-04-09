@@ -49,3 +49,20 @@ h1 {
 #user-actions {
   display:none;
 }
+
+.fancybox {
+  position:relative;
+}
+
+
+.edit-photo {
+  font-size: 10px;
+  font-weight: 400;
+  position:absolute;
+  left:0;
+  margin: 5px 0 0 5px;
+  color:white;
+  text-shadow: 2px 2px 2px black;
+  display:none;
+}
+

@@ -16,7 +16,10 @@
 <div class="col-md-2" id="user-uploads">
   <% if @user.uploads.any? %>
   <% @user.uploads.each do |upload| %>
-    <a rel="fb-group" href="<%= upload.photo.url(:large) %>" class="fancybox"><%= image_tag upload.photo.url(:thumb) %></a>
+    <a rel="fb-group" href="<%= upload.photo.url(:large) %>" class="fancybox">
+      <%= image_tag upload.photo.url(:thumb) %>
+      <span data-url="<%= user_upload_path(@user, upload) %>" class="edit-photo">edit</span>
+    </a>
     <% end %>
   <% end %>
 </div>

@@ -12,4 +12,9 @@ class UploadsController < ApplicationController
       redirect_to user_path(@user.id)
     end
   end
+
+  def show
+    @upload = Upload.find(params[:id])
+    @users = User.all
+  end
 end

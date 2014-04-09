@@ -5,4 +5,6 @@ PeanutShutter::Application.routes.draw do
     resources :uploads
   end
 
+  match('users', {:via => :post, :to => 'users#index'})
+
 end

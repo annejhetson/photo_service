@@ -1,28 +1,10 @@
-== README
+Photo sharing app
+_______________________
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Let's make an app that lets users upload their photos to share with the world.
 
-Things you may want to cover:
+Start off by letting people create accounts, following along with the authentication Railscast.
 
-* Ruby version
+Then, let them upload photos.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Next, allow them to tag other users in photos. To keep this simple, just display a list of all the users in a drop-down menu when you add a tag to a photo.

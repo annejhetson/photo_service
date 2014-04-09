@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   def index
+    # @user = User.new(params.require(:user).permit(:search))
+    @users = User.all
     @uploads = Upload.all
   end
 
