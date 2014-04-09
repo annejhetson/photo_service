@@ -1,3 +1,8 @@
 <h1>Peanut Shutter</h1>
 
-<p>We have nothing to show you ha!</p>
+<div>
+<% @uploads.each do |upload| %>
+  <a rel="fb-group" title="by <%= upload.user.name %>" href="<%= upload.photo.url(:large) %>" class="fancybox"><%= image_tag upload.photo.url(:thumb) %></a>
+<% end %>
+
+</div>
