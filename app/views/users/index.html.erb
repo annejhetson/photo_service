@@ -1,5 +1,13 @@
 <h1>Peanut Shutter</h1>
 
+<% if params[:search] %>
+<div id="search-results">
+  <% @users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+</div>
+<% end %>
+
 <div>
 <% @uploads.each do |upload| %>
   <a rel="fb-group" title="by <%= upload.user.name %>" href="<%= upload.photo.url(:large) %>" class="fancybox"><%= image_tag upload.photo.url(:thumb) %></a>

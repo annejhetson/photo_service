@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    # @user = User.new(params.require(:user).permit(:search))
-    @users = User.all
-    @uploads = Upload.all
+    if params[:search]
+      @uploads = Upload.all
+      # @users = User.where(name: params[:search])
+      @users = User.where(['name LIKE ?', "%#{params[:search]}%"])
+    else
+      @uploads = Upload.all
+    end
   end
 
   def new
