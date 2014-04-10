@@ -1,36 +1,33 @@
 <div>
 <div class="col-md-2">
-<h1><%= image_tag current_user.avatar.url(:medium) %> <br> <%= %><%= @user.name  %></h1>
+  <h1><%= image_tag current_user.avatar.url(:medium) %> <br> <%= @user.name  %></h1>
 
 
-<h3>Upload an image</h3>
-<%= form_for [@user, @upload], :html => { :multipart => true } do |f| %>
-  <div class="form-group">
-    <%= f.file_field :photo %>
-  </div>
-  <%= f.submit "Submit", :class => 'btn btn-primary' %>
-<% end  %>
-
+  <h3>Upload an image</h3>
+  <%= form_for [@user, @upload], :html => { :multipart => true } do |f| %>
+    <div class="form-group">
+      <%= f.file_field :photo %>
+    </div>
+    <%= f.submit "Submit", :class => 'btn btn-primary' %>
+  <% end  %>
 </div>
 
-<div class="col-md-2" id="user-uploads">
-  <% if @user.uploads.any? %>
-  <% @user.uploads.each do |upload| %>
-    <a rel="fb-group" href="<%= upload.photo.url(:large) %>" class="fancybox">
-      <%= image_tag upload.photo.url(:thumb) %>
-      <span data-url="<%= user_upload_path(@user, upload) %>" class="edit-photo">edit</span>
-    </a>
+  <div class="col-md-2" id="user-uploads">
+    <% if @user.uploads.any? %>
+    <% @user.uploads.each do |upload| %>
+      <a rel="fb-group" href="<%= upload.photo.url(:large) %>" class="fancybox">
+        <%= image_tag upload.photo.url(:thumb) %>
+        <span data-url="<%= user_upload_path(@user, upload) %>" class="edit-photo">edit</span>
+      </a>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<div id="user-actions">
-  <%= link_to "edit", edit_user_path  %>
-  <%= link_to "delete", user_path(@user.id),
-                      data: { confirm: "Are you super duper sure?",
-                              method: "delete"} %>
+  <div id="user-actions">
+    <%= link_to "edit", edit_user_path  %>
+    <%= link_to "delete", user_path(@user.id),
+                        data: { confirm: "Are you super duper sure?",
+                                method: "delete"} %>
 
-</div>
-
-
+  </div>
 </div>

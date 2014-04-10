@@ -1,5 +1,6 @@
 <%= image_tag @upload.photo.url(:large) %>
 
+
 <select value="add_tag">
 <% @users.each do |user| %>
   <option name="<%= user.id %>"><%= user.name %></option>

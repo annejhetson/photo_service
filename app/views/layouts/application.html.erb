@@ -28,6 +28,9 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
+
+
+
               <ul class="nav navbar-nav navbar-right">
                 <% if current_user %>
                   <li><%= image_tag current_user.avatar.url(:thumb), :id => 'user-avatar' %></li>
@@ -48,8 +51,19 @@
 
     <%= yield %>
     <%= flash[:notice] %>
-    <div class="clear"></div>
   </div>
+<% if current_page?(users_path) %>
+  <div class="clear"></div>
+  <% if @users.first != nil %>
+    <div id="search-results">
+      <p>Search results:</p>
+      <% @users.each do |user| %>
+        <%= user.name %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
 
 <script type="text/javascript">
 $(document).ready(function() {

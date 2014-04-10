@@ -1,12 +1,19 @@
 class UsersController < ApplicationController
 
   def index
-    if params[:search]
+
+    if @users = User.where(['name LIKE ?', "%#{params[:search]}%"])
       @uploads = Upload.all
-      # @users = User.where(name: params[:search])
-      @users = User.where(['name LIKE ?', "%#{params[:search]}%"])
+
+      if @users.first == nil
+        flash.now[:notice] = "No search results found"
+        render 'index'
+      end
+
+
     else
       @uploads = Upload.all
+
     end
   end
 
