@@ -24,7 +24,24 @@ class User < ActiveRecord::Base
     array
     hash = Hash.new(0)
     freq = array.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    array.max_by { |v| freq[v] }
+    that_user_id = array.max_by { |v| freq[v] }
+    his_photo_array = []
+
+
+    self.likes.each do |mylike|
+      User.find(that_user_id).likes.each do |hislike|
+        if hislike.upload_id != mylike.upload_id
+          his_photo_array << hislike.upload_id
+        end
+        binding.pry
+      end
+
+      his_photo_array
+
+    end
+
+
+
 
     # Like.all.each do |like|
       # defined?("@a#{like.user_id}")

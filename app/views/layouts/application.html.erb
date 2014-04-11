@@ -50,10 +50,11 @@
   <div id="wrapper">
 
     <%= yield %>
+    <div class="clear"></div>
     <%= flash[:notice] %>
   </div>
 <% if current_page?(users_path) %>
-  <div class="clear"></div>
+
   <% if @users.first != nil %>
     <div id="search-results">
       <p>Search results:</p>
