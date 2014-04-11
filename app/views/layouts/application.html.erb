@@ -84,10 +84,23 @@ $(document).ready(function() {
     }
   });
 
+  $('.like2').on({
+    mouseenter: function() {
+      $(this).find('.like').fadeToggle();
+    },
+    mouseleave: function() {
+      $(this).find('.like').fadeToggle();
+    }
+  });
+
   $('.edit-photo').on('click', function() {
     url = $(this).data('url');
     document.location = url;
   })
+
+  // $('a.fancybox').hover(function() {
+  //   $(this).find('.like').toggle();
+  // })
 
 });
 

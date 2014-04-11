@@ -4,7 +4,19 @@
 
 <div>
 <% @uploads.each do |upload| %>
-  <a rel="fb-group" title="by <%= upload.user.name %>" href="<%= upload.photo.url(:large) %>" class="fancybox"><%= image_tag upload.photo.url(:thumb) %></a>
+<div class="col-md-2 like2">
+  <a rel="fb-group" title="by <%= upload.user.name %>" href="<%= upload.photo.url(:large) %>" class="fancybox"><%= image_tag upload.photo.url(:thumb) %>
+    <div class='like'>
+    <%= link_to "like", likes_path(:upload_id => upload.id), html_options = {:method => "post" } %></a>
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- <a action="<%= likes_path %>" value='<%= upload %>' method='post'>like</a> -->
 <% end %>
 
 </div>

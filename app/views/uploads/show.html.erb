@@ -1,8 +1,24 @@
-<%= image_tag @upload.photo.url(:large) %>
+<div class="col-md-6">
+
+  <%= image_tag @upload.photo.url(:large) %>
+
+  <form action="/tags" method='post'>
+  <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
+  <input type='hidden' name='upload_id' value='<%= @upload.id %>'>
+  <select value="add_tag" name='user_id'>
+  <% @users.each do |user| %>
+    <option value="<%= user.id %>" ><%= user.name %></option>
+  <% end  %>
+  </select>
+  <button>TAG!</button>
+  </form>
+</div>
 
 
-<select value="add_tag">
-<% @users.each do |user| %>
-  <option name="<%= user.id %>"><%= user.name %></option>
-<% end  %>
-</select>
+<div class="col-md-2">
+  <h4>Tagged people:</h4></br>
+  <% @upload.tags.each do |tag| %>
+    <p><%= tag.user.name %></p>
+  <% end %>
+</div>
+

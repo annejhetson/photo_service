@@ -27,6 +27,7 @@ body {
   margin:65px auto 20px auto;
   padding:20px;
   width:800px;
+  height: 500px;
   background-color: #34373F;
   color: #C5252B;
   border-radius: 20px;
@@ -42,24 +43,31 @@ h1 {
   margin: 0 0 20px 0;
 }
 
-.col-md-2 {
-  width: 50%;
-}
+
 
 #user-actions {
-  display:none;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 
 .fancybox {
   position:relative;
 }
 
+.like {
+  position: absolute;
+  top: -2px;
+  left: 18px;
+  display: none;
+
+}
 
 .edit-photo {
   font-size: 10px;
   font-weight: 400;
   position:absolute;
   left:0;
+  top: -7px;
   margin: 5px 0 0 5px;
   color:white;
   text-shadow: 2px 2px 2px black;

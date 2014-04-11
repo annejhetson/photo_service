@@ -4,6 +4,8 @@ PeanutShutter::Application.routes.draw do
   resources :users do
     resources :uploads
   end
+  resources :tags
+  resources :likes
 
   match('users', {:via => :get, :to => 'users#index'})
 
